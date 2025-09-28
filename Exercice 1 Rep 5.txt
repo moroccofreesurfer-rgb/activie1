@@ -1,0 +1,45 @@
+public class Produit {
+    
+  
+    public static final double TVA = 0.20; 
+
+
+    private final String reference; 
+    private double prix;
+    
+
+    public String getReference() {
+        return this.reference;
+    }
+
+    public double getPrix() {
+        return this.prix;
+    }
+    
+
+    public void setPrix(double nouveauPrix) {
+        this.prix = nouveauPrix;
+    }
+
+
+    public double getPrixTTC() {
+        return this.prix * (1 + TVA);
+    }
+
+ 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Produit produit = (Produit) o;
+        
+        return reference.equals(produit.reference);
+    }
+    
+    @Override
+    public int hashCode() {
+        return reference.hashCode();
+    }
+    
+}
